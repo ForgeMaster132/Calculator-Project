@@ -51,7 +51,7 @@ function operate(){
             }else
             answer = subtract(problem[i - 1],problem[i + 1]);
             problem.splice(i+1,1,answer);
-        } else if (problem[i] == "x"){
+        } else if (problem[i] == "*"){
             if(numberSize > 1){
                 let size = 0;
                 let j = numberSize;
@@ -100,61 +100,22 @@ for(let i = 0; i < 10; i++){
     });
 }
 
-document.getElementById("+").addEventListener("click",function(){
-    if(document.getElementById("display").textContent.length > 12){
-        document.getElementById("display").style.fontSize = "250%";
-        document.getElementById("display").style.height = "7%";
-    }
-    if(document.getElementById("display").textContent.length > 18){
-        document.getElementById("display").style.fontSize = "150%";
-        document.getElementById("display").style.height = "5%";
-    }
-    if(document.getElementById("display").textContent == "Calculator")
-        document.getElementById("display").textContent = "";
-    document.getElementById("display").textContent = document.getElementById("display").textContent + "+";
-});
-
-document.getElementById("-").addEventListener("click",function(){
-    if(document.getElementById("display").textContent.length > 12){
-        document.getElementById("display").style.fontSize = "250%";
-        document.getElementById("display").style.height = "7%";
-    }
-    if(document.getElementById("display").textContent.length > 18){
-        document.getElementById("display").style.fontSize = "150%";
-        document.getElementById("display").style.height = "5%";
-    }
-    if(document.getElementById("display").textContent == "Calculator")
-        document.getElementById("display").textContent = "";
-    document.getElementById("display").textContent = document.getElementById("display").textContent + "-";
-});
-
-document.getElementById("*").addEventListener("click",function(){
-    if(document.getElementById("display").textContent.length > 12){
-        document.getElementById("display").style.fontSize = "250%";
-        document.getElementById("display").style.height = "7%";
-    }
-    if(document.getElementById("display").textContent.length > 18){
-        document.getElementById("display").style.fontSize = "150%";
-        document.getElementById("display").style.height = "5%";
-    }
-    if(document.getElementById("display").textContent == "Calculator")
-        document.getElementById("display").textContent = "";
-    document.getElementById("display").textContent = document.getElementById("display").textContent + "x";
-});
-
-document.getElementById("/").addEventListener("click",function(){
-    if(document.getElementById("display").textContent.length > 12){
-        document.getElementById("display").style.fontSize = "250%";
-        document.getElementById("display").style.height = "7%";
-    }
-    if(document.getElementById("display").textContent.length > 18){
-        document.getElementById("display").style.fontSize = "150%";
-        document.getElementById("display").style.height = "5%";
-    }
-    if(document.getElementById("display").textContent == "Calculator")
-        document.getElementById("display").textContent = "";
-    document.getElementById("display").textContent = document.getElementById("display").textContent + "/";
-});
+let operators= ["+","-","*","/"];
+for(let i = 0; operators.length > i; i++){
+    document.getElementById(operators[i]).addEventListener("click",function(){
+        if(document.getElementById("display").textContent.length > 12){
+            document.getElementById("display").style.fontSize = "250%";
+            document.getElementById("display").style.height = "7%";
+        }
+        if(document.getElementById("display").textContent.length > 18){
+            document.getElementById("display").style.fontSize = "150%";
+            document.getElementById("display").style.height = "5%";
+        }
+        if(document.getElementById("display").textContent == "Calculator")
+            document.getElementById("display").textContent = "";
+        document.getElementById("display").textContent = document.getElementById("display").textContent + operators[i];
+    });
+}
 
 document.getElementById("=").addEventListener("click",operate);
 
