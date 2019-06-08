@@ -21,7 +21,7 @@ function divide(num1,num2){
 }
 
 function firstNumBig(numberSize,problem,i){
-    let size = 0;
+    let size = "";
                 let j = numberSize;
                 while(j > 0){
                     size += problem[i - j];
@@ -32,16 +32,18 @@ function firstNumBig(numberSize,problem,i){
 
 function nextNumBigCheck(problem,i){
     let count = 0;
-    let k = 1;
-    for(let j = 0;j < problem.length - (i + 1); j++){
-        if(problem[i + k] != "+" || "-" || "/" || "x")
+    let k = i + 1;
+    for(let j = k ;j < problem.length; j++){
+        if((problem[j] == "+") || (problem[j] == "-") || (problem[j] == "/") || (problem[j] == "x")){
+            return count;
+        }
         count++;
     }
     return count;
 }
 
 function nextNumBig(problem,i,count){
-    let size = 0;
+    let size = "";
                 let j = count;
                 let k = 1;
                 while(j > 0){
@@ -55,40 +57,36 @@ function nextNumBig(problem,i,count){
 function operate(){
     let problem = document.getElementById("display").textContent.split("");
     let answer = 0;
-    let numberSize = 0;
     let num2 = 0;
-    let size = 0;
     let size2 = 0;
-    for(let i = 0;i < problem.length;i++){  
-        size = problem[i - 1];
-        size2 = problem[i + 1];
-        num2 = nextNumBigCheck(problem,i);
+    let num1 = nextNumBigCheck(problem,-1);
+    let size = nextNumBig(problem,-1,num1);
+    console.log(size);
+    answer = size;
+    for(let i = 0;i < problem.length;i++){
+         console.log("problem[i] " + problem[i]);
        if(problem[i] == "+"){
+                num2 = nextNumBigCheck(problem,i);
                 size2 = nextNumBig(problem,i,num2);
-                size = firstNumBig(numberSize,problem,i);
-                    answer += add(size,size2);
-                    problem.splice(i + 1,1,answer);
+                    answer = add(answer,size2);
+                console.log("ans  " + answer);
                     numberSize = 0;
         } else if(problem[i] == "-"){
+                num2 = nextNumBigCheck(problem,i);
                 size2 = nextNumBig(problem,i,num2);
-                size = firstNumBig(numberSize,problem,i);
-                    answer += subtract(size,size2);
-                    problem.splice(i + 1,1,answer);
+                    answer = subtract(answer,size2);
                     numberSize = 0;
         } else if(problem[i] == "x"){
+                num2 = nextNumBigCheck(problem,i);
                 size2 = nextNumBig(problem,i,num2);
-                size = firstNumBig(numberSize,problem,i);
-                    answer += multiply(size,size2);
-                    problem.splice(i + 1,1,answer);
+                    answer = multiply(answer,size2);
                     numberSize = 0;
         } else if(problem[i] == "/"){
+                num2 = nextNumBigCheck(problem,i);
                 size2 = nextNumBig(problem,i,num2);
-                size = firstNumBig(numberSize,problem,i);
-                    answer += divide(size,size2);
-                    problem.splice(i + 1,1,answer);
+                    answer = divide(answer,size2);
                     numberSize = 0;
         }
-      numberSize++;
     }
     document.getElementById("display").textContent = answer;
 }
