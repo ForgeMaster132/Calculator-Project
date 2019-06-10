@@ -61,15 +61,12 @@ function operate(){
     let size2 = 0;
     let num1 = nextNumBigCheck(problem,-1);
     let size = nextNumBig(problem,-1,num1);
-    console.log(size);
     answer = size;
     for(let i = 0;i < problem.length;i++){
-         console.log("problem[i] " + problem[i]);
        if(problem[i] == "+"){
                 num2 = nextNumBigCheck(problem,i);
                 size2 = nextNumBig(problem,i,num2);
                     answer = add(answer,size2);
-                console.log("ans  " + answer);
                     numberSize = 0;
         } else if(problem[i] == "-"){
                 num2 = nextNumBigCheck(problem,i);
