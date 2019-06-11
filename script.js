@@ -90,15 +90,17 @@ function operate(){
 
 // Buttons
 
+let sizeLength = [13,17,22,30,36];
+let sizeFontSize = ["250%","200%","150%","130%","100%"];
+let sizeFontHeight = ["7%","6%","5%","4%","3%"];
+
 for(let i = 0; i < 10; i++){
     document.getElementById(i).addEventListener("click",function(){
-        if(document.getElementById("display").textContent.length > 12){
-            document.getElementById("display").style.fontSize = "250%";
-            document.getElementById("display").style.height = "7%";
-        }
-        if(document.getElementById("display").textContent.length > 18){
-            document.getElementById("display").style.fontSize = "150%";
-            document.getElementById("display").style.height = "5%";
+        for(let i = 0;i < 5;i++){
+        if(document.getElementById("display").textContent.length > sizeLength[i]){
+            document.getElementById("display").style.fontSize = sizeFontSize[i];
+            document.getElementById("display").style.height = sizeFontHeight[i];
+            }
         }
         if(document.getElementById("display").textContent == "Calculator"){
             document.getElementById("display").textContent = i;
@@ -110,13 +112,11 @@ for(let i = 0; i < 10; i++){
 let operators= ["+","-","x","/"];
 for(let i = 0; operators.length > i; i++){
     document.getElementById(operators[i]).addEventListener("click",function(){
-        if(document.getElementById("display").textContent.length > 12){
-            document.getElementById("display").style.fontSize = "250%";
-            document.getElementById("display").style.height = "7%";
-        }
-        if(document.getElementById("display").textContent.length > 18){
-            document.getElementById("display").style.fontSize = "150%";
-            document.getElementById("display").style.height = "5%";
+         for(let i = 0;i < 5;i++){
+        if(document.getElementById("display").textContent.length > sizeLength[i]){
+            document.getElementById("display").style.fontSize = sizeFontSize[i];
+            document.getElementById("display").style.height = sizeFontHeight[i];
+            }
         }
         if(document.getElementById("display").textContent == "Calculator")
             document.getElementById("display").textContent = "";
@@ -125,6 +125,14 @@ for(let i = 0; operators.length > i; i++){
 }
 
 document.getElementById("=").addEventListener("click",operate);
+document.getElementById("=").addEventListener("click",function(){
+     for(let i = 0;i < 5;i++){
+        if(document.getElementById("display").textContent.length > sizeLength[i]){
+            document.getElementById("display").style.fontSize = sizeFontSize[i];
+            document.getElementById("display").style.height = sizeFontHeight[i];
+            }
+        }
+});
 
     document.getElementById("clear").addEventListener("click",function(){
     document.getElementById("display").style.fontSize = "300%";
