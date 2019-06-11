@@ -1,22 +1,22 @@
 // Functions
 
 function add(num1,num2){
-    let answer = parseInt(num1) + parseInt(num2);
+    let answer = parseFloat(num1) + parseFloat(num2);
     return answer;
 }
 
 function subtract(num1,num2){
-    let answer = parseInt(num1) - parseInt(num2);
+    let answer = parseFloat(num1) - parseFloat(num2);
     return answer;
 }
 
 function multiply(num1,num2){
-    let answer = parseInt(num1) * parseInt(num2);
+    let answer = parseFloat(num1) * parseFloat(num2);
     return answer;
 }
 
 function divide(num1,num2){
-    let answer = parseInt(num1) / parseInt(num2);
+    let answer = parseFloat(num1) / parseFloat(num2);
     return answer;
 }
 
