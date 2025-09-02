@@ -90,9 +90,9 @@ function operate(){
 
 // Buttons
 
-let sizeLength = [13,17,22,30,36];
-let sizeFontSize = ["250%","200%","150%","130%","100%"];
-let sizeFontHeight = ["7%","6%","5%","4%","3%"];
+let sizeLength = [13, 17, 22, 30, 36];
+let sizeFontSize = ["2.5rem", "2rem", "1.5rem", "1.3rem", "1rem"];
+let sizeFontHeight = ["4rem", "3.5rem", "3rem", "2.5rem", "2rem"];
 
 for(let i = 0; i < 10; i++){
     document.getElementById(i).addEventListener("click",function(){
@@ -102,7 +102,7 @@ for(let i = 0; i < 10; i++){
             document.getElementById("display").style.height = sizeFontHeight[i];
             }
         }
-        if(document.getElementById("display").textContent == "Calculator"){
+        if(document.getElementById("display").textContent == "0"){
             document.getElementById("display").textContent = i;
         } else
             document.getElementById("display").textContent = document.getElementById("display").textContent + i;
@@ -118,7 +118,7 @@ for(let i = 0; operators.length > i; i++){
             document.getElementById("display").style.height = sizeFontHeight[i];
             }
         }
-        if(document.getElementById("display").textContent == "Calculator")
+        if(document.getElementById("display").textContent == "0")
             document.getElementById("display").textContent = "";
         document.getElementById("display").textContent = document.getElementById("display").textContent + operators[i];
     });
@@ -135,8 +135,8 @@ document.getElementById("=").addEventListener("click",function(){
 });
 
     document.getElementById("clear").addEventListener("click",function(){
-    document.getElementById("display").style.fontSize = "300%";
-    document.getElementById("display").style.height = "10%";
-    document.getElementById("display").textContent = "Calculator";
+    document.getElementById("display").style.fontSize = "3rem";
+    document.getElementById("display").style.height = "4rem";
+    document.getElementById("display").textContent = "0";
 });
 
